@@ -1,9 +1,31 @@
-name: Unzip Folder
-on: [push]
+name: Auto Unzip
+on: 
+  push:
+    paths:
+      - '*.zip'  # 仅当zip文件被push时触发
+
 jobs:
   unzip:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - run: unzip your.zip -d target_folder/
-    - uses: stefanzweifel/git-auto-commit-action@v4
+
+    - name: Find ZIP file
+      run: |
+        echo "当前目录文件列表："
+        ls -la
+        ZIP_FILE=$(find . -name '*.zip' -print -quit)
+        echo "检测到ZIP文件: $ZIP_FILE"
+
+    - name: Unzip file
+      run: |
+        # 使用动态文件名解压
+        unzip -o *.zip -d unzipped/
+        
+        # 如果是特定子目录（示例）
+        # unzip -o path/to/your_file.zip -d target/
+
+    - name: Commit changes
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: "Auto-unzipped files"
