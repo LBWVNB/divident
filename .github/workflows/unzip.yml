@@ -1,41 +1,22 @@
-
-name: Smart Unzip
-on:
-  push:
-    paths:
-      - 'uploads/**'  # 监控特定目录的改动
+name: Secure Unzip
+on: [push]
 
 jobs:
   unzip:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
     - uses: actions/checkout@v3
       with:
-        fetch-depth: 0  # 关键参数：获取完整历史记录
+        token: ${{ secrets.GITHUB_TOKEN }}  # 显式声明令牌
 
-    - name: Locate ZIP file
-      id: find_zip
-      run: |
-        echo "当前工作目录: $PWD"
-        echo "文件树结构:"
-        tree -L 3
-        # 精确查找ZIP路径
-        ZIP_PATH=$(find . -path './uploads/*.zip' -print -quit)
-        echo "检测到ZIP路径: $ZIP_PATH"
-        echo "zip_path=$ZIP_PATH" >> $GITHUB_OUTPUT
+    - name: Unzip files
+      run: unzip -O GBK *.zip -d extracted/
 
-    - name: Unzip with Validation
-      if: steps.find_zip.outputs.zip_path
-      run: |
-        echo "正在解压: ${{ steps.find_zip.outputs.zip_path }}"
-        mkdir -p extracted_files
-        unzip -O GBK "${{ steps.find_zip.outputs.zip_path }}" -d extracted_files/
-        echo "解压后内容:"
-        tree extracted_files -L 2
-
-    - name: Commit Changes
-      if: steps.find_zip.outputs.zip_path
+    - name: Auto Commit
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        commit_message: "[Automation] 解压文件"
+        commit_message: "安全解压"
+        token: ${{ secrets.GITHUB_TOKEN }}
         branch: main
