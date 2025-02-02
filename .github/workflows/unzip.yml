@@ -1,31 +1,41 @@
-name: Auto Unzip
-on: 
+
+name: Smart Unzip
+on:
   push:
     paths:
-      - '*.zip'  # 仅当zip文件被push时触发
+      - 'uploads/**'  # 监控特定目录的改动
 
 jobs:
   unzip:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # 关键参数：获取完整历史记录
 
-    - name: Find ZIP file
+    - name: Locate ZIP file
+      id: find_zip
       run: |
-        echo "当前目录文件列表："
-        ls -la
-        ZIP_FILE=$(find . -name '*.zip' -print -quit)
-        echo "检测到ZIP文件: $ZIP_FILE"
+        echo "当前工作目录: $PWD"
+        echo "文件树结构:"
+        tree -L 3
+        # 精确查找ZIP路径
+        ZIP_PATH=$(find . -path './uploads/*.zip' -print -quit)
+        echo "检测到ZIP路径: $ZIP_PATH"
+        echo "zip_path=$ZIP_PATH" >> $GITHUB_OUTPUT
 
-    - name: Unzip file
+    - name: Unzip with Validation
+      if: steps.find_zip.outputs.zip_path
       run: |
-        # 使用动态文件名解压
-        unzip -o *.zip -d unzipped/
-        
-        # 如果是特定子目录（示例）
-        # unzip -o path/to/your_file.zip -d target/
+        echo "正在解压: ${{ steps.find_zip.outputs.zip_path }}"
+        mkdir -p extracted_files
+        unzip -O GBK "${{ steps.find_zip.outputs.zip_path }}" -d extracted_files/
+        echo "解压后内容:"
+        tree extracted_files -L 2
 
-    - name: Commit changes
+    - name: Commit Changes
+      if: steps.find_zip.outputs.zip_path
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        commit_message: "Auto-unzipped files"
+        commit_message: "[Automation] 解压文件"
+        branch: main
