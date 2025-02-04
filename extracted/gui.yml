@@ -1,0 +1,275 @@
+# GUI Config 1.0.0
+# You can modify it as you want
+# But be careful. Some changes may break the plugin.
+SOULBOUND:
+  Title: '&4&lSoulbound'
+  Size: 9
+  Content:
+    FILLER:
+      Material: 'STAINED_GLASS_PANE:15:1'
+      Display: '&r'
+      Lore: []
+      Enchant: false
+      Slots: '1,2,3,5,6,7'
+    ACCEPT:
+      Material: 'STAINED_GLASS_PANE:5:1'
+      Display: '&a&l[Accept]'
+      Lore:
+      - '&7Item will be untradeable'
+      - '&7and only you will able to use it.'
+      Enchant: true
+      Slots: '0'
+    DECLINE:
+      Material: 'STAINED_GLASS_PANE:14:1'
+      Display: '&c&l[Decline]'
+      Lore:
+      - '&7Soulbound will be cancelled.'
+      Enchant: true
+      Slots: '8'
+    TARGET:
+      Material: 'STONE:0:1'
+      Display: '&r'
+      Lore: []
+      Enchant: false
+      Slots: '4'
+ENCHANT_GEM:
+  Title: '&9&lEnchant: Gem'
+  Size: 9
+  Content:
+    FILLER:
+      Material: 'STAINED_GLASS_PANE:15:1'
+      Display: '&r'
+      Lore: []
+      Enchant: false
+      Slots: '1,2,6,7'
+    ACCEPT:
+      Material: 'STAINED_GLASS_PANE:5:1'
+      Display: '&a&l[Accept]'
+      Lore:
+      - '&7Item will be enchanted.'
+      Enchant: true
+      Slots: '8'
+    DECLINE:
+      Material: 'STAINED_GLASS_PANE:14:1'
+      Display: '&c&l[Decline]'
+      Lore:
+      - '&7Enchanting will be cancelled.'
+      Enchant: true
+      Slots: '0'
+    TARGET:
+      Material: 'STONE:0:1'
+      Display: '&r'
+      Lore: []
+      Enchant: false
+      Slots: '3'
+    SOURCE:
+      Material: 'STONE:0:1'
+      Display: '&r'
+      Lore: []
+      Enchant: false
+      Slots: '4'
+    RESULT:
+      Material: 'STONE:0:1'
+      Display: '&r'
+      Lore: []
+      Enchant: false
+      Slots: '5'
+ENCHANT_BOOK:
+  Title: '&9&lEnchant: Book'
+  Size: 9
+  Content:
+    FILLER:
+      Material: 'STAINED_GLASS_PANE:15:1'
+      Display: '&r'
+      Lore: []
+      Enchant: false
+      Slots: '1,2,6,7'
+    ACCEPT:
+      Material: 'STAINED_GLASS_PANE:5:1'
+      Display: '&a&l[Accept]'
+      Lore:
+      - '&7Item will be enchanted.'
+      Enchant: true
+      Slots: '8'
+    DECLINE:
+      Material: 'STAINED_GLASS_PANE:14:1'
+      Display: '&c&l[Decline]'
+      Lore:
+      - '&7Enchanting will be cancelled.'
+      Enchant: true
+      Slots: '0'
+    TARGET:
+      Material: 'STONE:0:1'
+      Display: '&r'
+      Lore: []
+      Enchant: false
+      Slots: '3'
+    SOURCE:
+      Material: 'STONE:0:1'
+      Display: '&r'
+      Lore: []
+      Enchant: false
+      Slots: '4'
+    RESULT:
+      Material: 'STONE:0:1'
+      Display: '&r'
+      Lore: []
+      Enchant: false
+      Slots: '5'
+ENCHANT_RUNE:
+  Title: '&9&lEnchant: Rune'
+  Size: 9
+  Content:
+    FILLER:
+      Material: 'STAINED_GLASS_PANE:15:1'
+      Display: '&r'
+      Lore: []
+      Enchant: false
+      Slots: '1,2,6,7'
+    ACCEPT:
+      Material: 'STAINED_GLASS_PANE:5:1'
+      Display: '&a&l[Accept]'
+      Lore:
+      - '&7Item will be enchanted.'
+      Enchant: true
+      Slots: '8'
+    DECLINE:
+      Material: 'STAINED_GLASS_PANE:14:1'
+      Display: '&c&l[Decline]'
+      Lore:
+      - '&7Enchanting will be cancelled.'
+      Enchant: true
+      Slots: '0'
+    TARGET:
+      Material: 'STONE:0:1'
+      Display: '&r'
+      Lore: []
+      Enchant: false
+      Slots: '3'
+    SOURCE:
+      Material: 'STONE:0:1'
+      Display: '&r'
+      Lore: []
+      Enchant: false
+      Slots: '4'
+    RESULT:
+      Material: 'STONE:0:1'
+      Display: '&r'
+      Lore: []
+      Enchant: false
+      Slots: '5'
+ENCHANT_ABILITY:
+  Title: '&9&lEnchant: Ability'
+  Size: 9
+  Content:
+    FILLER:
+      Material: 'STAINED_GLASS_PANE:15:1'
+      Display: '&r'
+      Lore: []
+      Enchant: false
+      Slots: '1,2,6,7'
+    ACCEPT:
+      Material: 'STAINED_GLASS_PANE:5:1'
+      Display: '&a&l[Accept]'
+      Lore:
+      - '&7Item will be enchanted.'
+      Enchant: true
+      Slots: '8'
+    DECLINE:
+      Material: 'STAINED_GLASS_PANE:14:1'
+      Display: '&c&l[Decline]'
+      Lore:
+      - '&7Enchanting will be cancelled.'
+      Enchant: true
+      Slots: '0'
+    TARGET:
+      Material: 'STONE:0:1'
+      Display: '&r'
+      Lore: []
+      Enchant: false
+      Slots: '3'
+    SOURCE:
+      Material: 'STONE:0:1'
+      Display: '&r'
+      Lore: []
+      Enchant: false
+      Slots: '4'
+    RESULT:
+      Material: 'STONE:0:1'
+      Display: '&r'
+      Lore: []
+      Enchant: false
+      Slots: '5'
+REPAIR_GEM:
+  Title: '&4&lGem Repair'
+  Size: 9
+  Content:
+    ACCEPT:
+      Material: 'STAINED_GLASS_PANE:5:1'
+      Display: '&a&l[Accept]'
+      Lore:
+      - '&7Item will be repaired.'
+      Enchant: true
+      Slots: '8'
+    DECLINE:
+      Material: 'STAINED_GLASS_PANE:14:1'
+      Display: '&c&l[Decline]'
+      Lore:
+      - '&7Repairing will be cancelled.'
+      Enchant: true
+      Slots: '0'
+    TARGET:
+      Material: 'STONE:0:1'
+      Display: '&r'
+      Lore: []
+      Enchant: false
+      Slots: '3'
+    SOURCE:
+      Material: 'STONE:0:1'
+      Display: '&r'
+      Lore: []
+      Enchant: false
+      Slots: '4'
+    RESULT:
+      Material: 'STONE:0:1'
+      Display: '&r'
+      Lore: []
+      Enchant: false
+      Slots: '5'
+REPAIR_ANVIL:
+  Title: '&4&lRepair Anvil'
+  Size: 54
+  Content:
+    EXP:
+      Material: 'EXP_BOTTLE:0:1'
+      Display: '&e&l[EXP]'
+      Lore:
+      - '&7Repair item with &eEXP'
+      - '&e> &7Cost: &e%s% Exp Levels'
+      - '&e> &7You have: &e%d% Exp Levels'
+      Enchant: true
+      Slots: '29'
+    MATERIAL:
+      Material: 'ANVIL:0:1'
+      Display: '&f&l[MATERIAL]'
+      Lore:
+      - '&7Repair item with item &fMATERIAL'
+      - '&f> &7Cost: &f%s% %material%'
+      - '&f> &7You have: &f%d% %material%'
+      Enchant: true
+      Slots: '31'
+    VAULT:
+      Material: 'EMERALD:0:1'
+      Display: '&a&l[MONEY]'
+      Lore:
+      - '&7Repair item with &aMONEY'
+      - '&a> &7Cost: &a%s%$'
+      - '&a> &7You have: &a%d%$'
+      Enchant: true
+      Slots: '33'
+    TARGET:
+      Material: 'STONE:0:1'
+      Display: '&r'
+      Lore: []
+      Enchant: false
+      Slots: '22'
