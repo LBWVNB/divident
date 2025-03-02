@@ -12,7 +12,7 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}  # 显式声明令牌
 
     - name: Unzip files
-      run: unzip -O GBK *.zip -d extracted/
+      run: unzip -O GBK *.zip -d extracted/cydl
 
     - name: Auto Commit
       uses: stefanzweifel/git-auto-commit-action@v4
