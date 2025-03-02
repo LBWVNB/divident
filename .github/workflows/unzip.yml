@@ -13,7 +13,11 @@ jobs:
       run: sudo apt-get install p7zip-full -y
 
     - name: Check ZIP existence
-      run: test -f su.zip || (echo "Error: su.zip未找到"; exit 1)
+      run: |
+        if [ ! -f su.zip ]; then
+          echo "Error: su.zip未找到"
+          exit 1
+        fi
 
     - name: Unzip files
       run: 7z x -oextracted/cydl su.zip  # 更兼容的压缩工具
