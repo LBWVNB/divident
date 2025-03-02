@@ -7,12 +7,16 @@ jobs:
     permissions:
       contents: write
     steps:
-    - uses: actions/checkout@v3
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}  # 显式声明令牌
+    - uses: actions/checkout@v4  # 升级到v4
+      
+    - name: Install 7z
+      run: sudo apt-get install p7zip-full -y
+
+    - name: Check ZIP existence
+      run: test -f su.zip || (echo "Error: su.zip未找到"; exit 1)
 
     - name: Unzip files
-      run: unzip -O GBK su.zip -d extracted/cydl
+      run: 7z x -oextracted/cydl su.zip  # 更兼容的压缩工具
 
     - name: Auto Commit
       uses: stefanzweifel/git-auto-commit-action@v4
@@ -20,3 +24,4 @@ jobs:
         commit_message: "安全解压"
         token: ${{ secrets.GITHUB_TOKEN }}
         branch: main
+        skip_empty_commit: true
